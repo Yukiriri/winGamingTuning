@@ -1,4 +1,4 @@
-一份对Windows游戏的CPU性能、丝滑度、跟手等因素的研究心得  
+一份对Windows游戏的丝滑度、手感等因素的研究心得  
 
 ## 系统版本建议
 请查看(https://learn.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)  
@@ -19,20 +19,16 @@
 - 非到必要，不选择超频档刷新率，只选择原生刷新率，因为超频刷新率在图像数据复杂时，会破坏垂直同步变成负收益  
 - 优先选择拥有VRR以及低延迟技术的显示器  
 
-## 改进系统Tick
-经过长期的各种实测，有些竞技游戏一直在用旧的`RTC`作为Tick源  
-`RTC`会明显拖慢游戏的可用算力，但是Windows对鼠标轨迹定位的计算更依赖`RTC`  
-这里提供2种方案给不同侧重的玩家选择  
+## 全局计时器精度
+重新开启全局同步的计时器精度可以让后台程序的计时器稳定发挥  
 
-[set-tsc-accurate.bat]: ../bin/set-tsc-accurate.bat
-[set-tsc-fast.bat]: ../bin/set-tsc-fast.bat
-[restore-tsc-default.bat]: ../bin/restore-tsc-default.bat
+[set-timeres-global.bat]: ../bin/set-timeres-global.bat
+[restore-timeres-default.bat]: ../bin/restore-timeres-default.bat
 
 - 修改方法  
-  - `准确鼠标轨迹`：下载和管理员运行[set-tsc-accurate.bat]  
-  - `高性能Tick`：下载和管理员运行[set-tsc-fast.bat]  
+  下载和管理员运行[set-timeres-global.bat]  
 - 还原修改  
-  下载和管理员运行[restore-tsc-default.bat]  
+  下载和管理员运行[restore-timeres-default.bat]  
 
 > [!IMPORTANT]  
 > 需要重启生效  
@@ -41,8 +37,7 @@
 > 运行一次即整个系统永久保持，不需要加入开机自启  
 
 ## 关闭MPO
-系统的MPO功能会在游戏高GPU负载时影响低GPU负载程序的画面更新，出现画面残留等  
-关闭这个功能可以缓解  
+系统的MPO功能会在游戏高GPU负载时影响低GPU负载程序的画面更新，出现画面残留等，关闭这个功能可以缓解  
 
 [set-mpo-disabled.bat]: ../bin/set-mpo-disabled.bat
 [restore-mpo-default.bat]: ../bin/restore-mpo-default.bat
@@ -70,6 +65,9 @@
 - 还原修改  
   下载和管理员运行[restore-mouseacceleration-default.bat]  
 
+> [!IMPORTANT]  
+> 需要重启生效  
+
 > [!NOTE]  
 > 运行一次即整个系统永久保持，不需要加入开机自启  
 
@@ -85,6 +83,9 @@
   - `高灵敏度玩家`：下载和管理员运行[set-fgbgscheduling-var31.bat]  
 - 还原修改  
   下载和管理员运行[restore-fgbgscheduling-default.bat]  
+
+> [!IMPORTANT]  
+> 需要重启生效  
 
 > [!NOTE]  
 > 运行一次即整个系统永久保持，不需要加入开机自启  

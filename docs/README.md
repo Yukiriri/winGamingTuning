@@ -106,5 +106,11 @@
 
 </details>
 
+## 关于BCD选项的最终总结
+| 选项            | 设置的值      | 鼠标指针细节 | 鼠标指针残留 | 鼠标输入延迟 |
+| :-------------- | :------------ | :----------- | :----------- | :----------- |
+| UsePlatformTick | no            | 更加丰富     | 长           | 高           |
+| UsePlatformTick | yes或者不设置 | 回报率影响   | 短           | 低           |
+
 ## Credits
 - https://sites.google.com/view/melodystweaks/misconceptions-about-timers-hpet-tsc-pmt
